@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using EmojiVotoWPF.Voting.ViewModel;
 
 namespace EmojiVotoWPF
 {
@@ -7,9 +8,10 @@ namespace EmojiVotoWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(IVotingViewModel model)
         {
             InitializeComponent();
+            DataContext = model;
         }
     }
 }
