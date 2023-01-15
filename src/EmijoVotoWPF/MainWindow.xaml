@@ -16,6 +16,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid x:Name="VotableEmojies" >
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
             <ItemsControl x:Name="EmojiItems" ItemsSource="{Binding EmojiDtos}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -37,6 +38,7 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Window>
