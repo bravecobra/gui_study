@@ -1,9 +1,11 @@
-﻿using EmojiVotoWPF.Voting.Model.Dto;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using EmojiVoto.EmojiSvc.Api.Queries;
 
 namespace EmojiVotoWPF.Voting.ViewModel;
 
 public interface IVotingViewModel
 {
-    ObservableCollection<EmojiDto>? EmojiDtos { get; set; }
+    ObservableCollection<ListAllEmojisHandler.EmojiDto>? EmojiDtos { get; set; }
+    Task GetEmojies();
 }

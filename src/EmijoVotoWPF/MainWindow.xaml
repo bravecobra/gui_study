@@ -9,7 +9,7 @@
         d:DataContext="{d:DesignInstance Type=viewmodel:VotingViewModel}"
         mc:Ignorable="d"
         Name ="VotingWindow"
-        Title="EmojiVoto" Height="450" Width="800">
+        Title="EmojiVoto" Height="450" Width="800" Loaded="VotingWindow_Loaded">
     <Grid
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <Grid.ColumnDefinitions>

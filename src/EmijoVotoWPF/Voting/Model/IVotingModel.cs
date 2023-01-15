@@ -1,11 +1,11 @@
-﻿using EmojiVotoWPF.Voting.Model.Dto;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using EmojiVoto.EmojiSvc.Api.Queries;
 
 namespace EmojiVotoWPF.Voting.Model;
 
 internal interface IVotingModel
 {
-    IReadOnlyList<EmojiDto> GetEmojisDtos();
+    Task<IReadOnlyList<ListAllEmojisHandler.EmojiDto>> GetAllEmojis();
     Task Vote(string shortCode);
 }

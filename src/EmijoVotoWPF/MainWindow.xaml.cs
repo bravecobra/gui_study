@@ -8,10 +8,17 @@ namespace EmojiVotoWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly IVotingViewModel _model;
         public MainWindow(IVotingViewModel model)
         {
             InitializeComponent();
-            DataContext = model;
+            _model = model;
+            DataContext = _model;
+        }
+
+        private void VotingWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            _model.GetEmojies();
         }
     }
 }

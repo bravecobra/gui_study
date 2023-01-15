@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace EmojiVotoWPF
+﻿namespace EmojiVoto.EmojiSvc.Persistence.Impl
 {
     public static class EmojiDefinitions
     {
@@ -1517,7 +1515,9 @@ namespace EmojiVotoWPF
                 [":zzz:"] = "\U0001f4a4",
             };
 
-        public static string[] Top100Emojis = {
+        
+
+        public static readonly string[] Top100Emojis = {
             ":joy:",
             ":sunglasses:",
             ":doughnut:",
@@ -1616,7 +1616,7 @@ namespace EmojiVotoWPF
             ":checkered_flag:",
             ":crossed_swords:",
             ":floppy_disk:",
-            ":poop:",
+            ":poop:"
         };
     }
 }

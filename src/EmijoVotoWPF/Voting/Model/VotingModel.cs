@@ -1,38 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using EmojiVotoWPF.Voting.Model.Dto;
-using Microsoft.Extensions.Logging;
+using EmojiVoto.EmojiSvc.Api.Queries;
+using EmojiVoto.Voting.Api.Commands;
+using MediatR;
 
 namespace EmojiVotoWPF.Voting.Model
 {
     internal class VotingModel: IVotingModel
     {
-        private readonly ILogger<VotingModel> _logger;
-        private readonly List<EmojiDto> _emojis = new();
+        private readonly IMediator _mediator;
+        private List<ListAllEmojisHandler.EmojiDto> _emojis = new();
 
-        public VotingModel(ILogger<VotingModel> logger)
+        public VotingModel(IMediator mediator)
         {
-            _logger = logger;
-            foreach (var s in EmojiDefinitions.Top100Emojis)
-            {
-                _emojis.Add(new EmojiDto
-                {
-                    Shortcode = s,
-                    Unicode = EmojiDefinitions.CodeMap[s]
-                });
-            }
+            _mediator = mediator;
         }
 
-        public IReadOnlyList<EmojiDto> GetEmojisDtos()
+        public async Task<IReadOnlyList<ListAllEmojisHandler.EmojiDto>> GetAllEmojis()
         {
+            _emojis = (await _mediator.Send(new ListAllEmojisHandler.ListAllEmojis())).ToList();
             return _emojis.AsReadOnly();
         }
 
-        public Task Vote(string shortCode)
+        public async Task Vote(string shortCode)
         {
-            _logger.LogInformation($"You voted for {shortCode}");
-            return Task.CompletedTask;
+            await _mediator.Send(new VoteEmojiHandler.VoteEmojiCommand { ShortCode = shortCode });
         }
     }
 }

@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using EmojiVoto.EmojiSvc.Api.Queries;
 using EmojiVotoWPF.Voting.Model;
-using EmojiVotoWPF.Voting.Model.Dto;
 
 namespace EmojiVotoWPF.Voting.ViewModel
 {
@@ -12,7 +12,7 @@ namespace EmojiVotoWPF.Voting.ViewModel
         private readonly IVotingModel _model;
 
         [ObservableProperty]
-        private ObservableCollection<EmojiDto>? _emojiDtos;
+        private ObservableCollection<ListAllEmojisHandler.EmojiDto>? _emojiDtos;
 
         [RelayCommand]
         private Task Vote(string shortCode)
@@ -20,10 +20,14 @@ namespace EmojiVotoWPF.Voting.ViewModel
             return _model.Vote(shortCode);
         }
 
+        public async Task GetEmojies()
+        {
+            EmojiDtos = new ObservableCollection<ListAllEmojisHandler.EmojiDto>(await _model.GetAllEmojis());
+        }
+
         public VotingViewModel(IVotingModel model)
         {
             _model = model;
-            EmojiDtos = new ObservableCollection<EmojiDto>(_model.GetEmojisDtos());
         }
     }
 }
