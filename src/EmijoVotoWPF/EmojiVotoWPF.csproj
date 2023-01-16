@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+    <PackageReference Include="Emoji.Wpf" Version="0.3.4" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.7.0" />
+    <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+    <PackageReference Include="ToastNotifications" Version="2.5.1" />
+    <PackageReference Include="ToastNotifications.Messages" Version="2.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EmojiVoto.EmojiSvc.Api\EmojiVoto.EmojiSvc.Api.csproj" />
+    <ProjectReference Include="..\EmojiVoto.EmojiSvc.Application\EmojiVoto.EmojiSvc.Application.csproj" />
+    <ProjectReference Include="..\EmojiVoto.EmojiSvc.Persistence\EmojiVoto.EmojiSvc.Persistence.csproj" />
+    <ProjectReference Include="..\EmojiVoto.Voting.Api\EmojiVoto.Voting.Api.csproj" />
+    <ProjectReference Include="..\EmojiVoto.Voting.Application\EmojiVoto.Voting.Application.csproj" />
+    <ProjectReference Include="..\EmojiVoto.Voting.Persistence\EmojiVoto.Voting.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
