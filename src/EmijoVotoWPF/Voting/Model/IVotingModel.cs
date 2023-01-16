@@ -6,6 +6,6 @@ namespace EmojiVotoWPF.Voting.Model;
 
 internal interface IVotingModel
 {
-    Task<IReadOnlyList<ListAllEmojisHandler.EmojiDto>> GetAllEmojis();
+    Task<IReadOnlyList<EmojiDto>> GetAllEmojis();
     Task Vote(string shortCode);
 }

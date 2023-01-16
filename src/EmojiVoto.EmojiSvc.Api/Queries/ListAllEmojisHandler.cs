@@ -4,7 +4,7 @@ using MediatR;
 
 namespace EmojiVoto.EmojiSvc.Api.Queries
 {
-    public class ListAllEmojisHandler: IRequestHandler<ListAllEmojisHandler.ListAllEmojis, IEnumerable<ListAllEmojisHandler.EmojiDto>>
+    public class ListAllEmojisHandler: IRequestHandler<ListAllEmojisHandler.ListAllEmojis, IEnumerable<EmojiDto>>
     {
         private readonly IEmojiService _emojiService;
         private readonly IMapper _mapper;
@@ -18,11 +18,6 @@ namespace EmojiVoto.EmojiSvc.Api.Queries
         public class ListAllEmojis : IRequest<IEnumerable<EmojiDto>>
         {
 
-        }
-        public class EmojiDto
-        {
-            public string Unicode { get; set; } = null!;
-            public string Shortcode { get; set; } = null!;
         }
 
 

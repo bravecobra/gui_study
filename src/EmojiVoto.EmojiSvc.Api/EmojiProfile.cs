@@ -8,7 +8,7 @@ namespace EmojiVoto.EmojiSvc.Api
     {
         public EmojiProfile()
         {
-            CreateMap<Emoji, ListAllEmojisHandler.EmojiDto>();
+            CreateMap<Emoji, EmojiDto>();
         }
     }
 }

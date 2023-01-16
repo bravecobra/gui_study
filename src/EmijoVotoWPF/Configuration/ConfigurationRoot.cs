@@ -4,6 +4,9 @@ using EmojiVoto.EmojiSvc.Persistence.Configuration;
 using EmojiVoto.Voting.Api.Configuration;
 using EmojiVoto.Voting.Application.Configuration;
 using EmojiVoto.Voting.Persistence.Configuration;
+using EmojiVotoWPF.Dashboard.Model;
+using EmojiVotoWPF.Dashboard.ViewModel;
+using EmojiVotoWPF.MainWindow;
 using EmojiVotoWPF.Voting.Model;
 using EmojiVotoWPF.Voting.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +21,10 @@ namespace EmojiVotoWPF.Configuration
             //UI
             services.AddTransient<IVotingViewModel, VotingViewModel>();
             services.AddTransient<IVotingModel, VotingModel>();
-            services.AddTransient<MainWindow>();
+            services.AddTransient<IDashboardViewModel, DashboardViewModel>();
+            services.AddTransient<IDashboardModel, DashboardModel>();
+            services.AddTransient<IMainWindowViewModel, MainWindow.MainWindowViewModel>();
+            services.AddTransient<MainWindow.MainWindow>();
 
             //EmojiSvc
             services.AddEmojiSvcApi();

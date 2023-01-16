@@ -4,7 +4,7 @@ using MediatR;
 
 namespace EmojiVoto.Voting.Api.Queries
 {
-    internal class ListVotingResultsHandler: IRequestHandler<ListVotingResultsHandler.ListVotingResultsQuery, IEnumerable<ListVotingResultsHandler.VotingResultDto>>
+    public class ListVotingResultsHandler: IRequestHandler<ListVotingResultsHandler.ListVotingResultsQuery, IEnumerable<ListVotingResultsHandler.VotingResultDto>>
     {
         private readonly IVotingService _votingservice;
         private readonly IMapper _mapper;

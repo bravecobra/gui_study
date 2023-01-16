@@ -20,6 +20,7 @@
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
     <PackageReference Include="Emoji.Wpf" Version="0.3.4" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.7.0" />
     <PackageReference Include="MediatR" Version="11.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
@@ -35,10 +36,6 @@
     <ProjectReference Include="..\EmojiVoto.Voting.Api\EmojiVoto.Voting.Api.csproj" />
     <ProjectReference Include="..\EmojiVoto.Voting.Application\EmojiVoto.Voting.Application.csproj" />
     <ProjectReference Include="..\EmojiVoto.Voting.Persistence\EmojiVoto.Voting.Persistence.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Dashboard\" />
   </ItemGroup>
 
 </Project>

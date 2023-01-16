@@ -4,8 +4,8 @@ using EmojiVoto.EmojiSvc.Api.Queries;
 
 namespace EmojiVotoWPF.Voting.ViewModel;
 
-public interface IVotingViewModel
+public interface IVotingViewModel: IMenuItem
 {
-    ObservableCollection<ListAllEmojisHandler.EmojiDto>? EmojiDtos { get; set; }
+    ObservableCollection<EmojiDto>? EmojiDtos { get; set; }
     Task GetEmojies();
 }

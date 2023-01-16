@@ -12,7 +12,7 @@ namespace EmojiVotoWPF.Voting.ViewModel
         private readonly IVotingModel _model;
 
         [ObservableProperty]
-        private ObservableCollection<ListAllEmojisHandler.EmojiDto>? _emojiDtos;
+        private ObservableCollection<EmojiDto>? _emojiDtos;
 
         [RelayCommand]
         private Task Vote(string shortCode)
@@ -22,12 +22,14 @@ namespace EmojiVotoWPF.Voting.ViewModel
 
         public async Task GetEmojies()
         {
-            EmojiDtos = new ObservableCollection<ListAllEmojisHandler.EmojiDto>(await _model.GetAllEmojis());
+            EmojiDtos = new ObservableCollection<EmojiDto>(await _model.GetAllEmojis());
         }
 
         public VotingViewModel(IVotingModel model)
         {
             _model = model;
         }
+
+        public string Title => "Voting";
     }
 }

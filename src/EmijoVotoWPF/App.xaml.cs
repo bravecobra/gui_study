@@ -49,7 +49,7 @@ public partial class App : Application
     private async void Application_Startup(object sender, StartupEventArgs e)
     {
         await _host.StartAsync();
-        var mainWindow = _host.Services.GetRequiredService<MainWindow>();
+        var mainWindow = _host.Services.GetRequiredService<MainWindow.MainWindow>();
         mainWindow.Show();
     }
 
