@@ -4,9 +4,9 @@ namespace EmojiVoto.EmojiSvc.Application.Services.Impl;
 
 internal class EmojiService : IEmojiService
 {
-    private readonly IEmojiRepo _repository;
+    private readonly IEmojiRepository _repository;
 
-    public EmojiService(IEmojiRepo repository)
+    public EmojiService(IEmojiRepository repository)
     {
         _repository = repository;
     }

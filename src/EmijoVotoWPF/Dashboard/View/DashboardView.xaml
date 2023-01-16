@@ -11,17 +11,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Loaded="DashboardView_OnLoaded">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-    <Grid>
-        
-        <StackPanel>
-            <TextBlock Text="Voting results" 
-                       FontSize="24"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center" />
-            
-            <materialDesign:Card Padding="32" Margin="16">
-                <Grid>
-                    
+        <Grid>
+            <StackPanel>
+                <TextBlock Text="Voting results" 
+                           FontSize="24"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center" />
+                <materialDesign:Card Padding="32" Margin="16">
+                    <Grid>
                         <ItemsControl x:Name="EmojiItems" ItemsSource="{Binding VotingResults}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -37,11 +34,9 @@
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-                </Grid>
-            </materialDesign:Card>
-            
-        </StackPanel>
-        
-    </Grid>
+                    </Grid>
+                </materialDesign:Card>
+            </StackPanel>
+        </Grid>
     </ScrollViewer>
 </UserControl>

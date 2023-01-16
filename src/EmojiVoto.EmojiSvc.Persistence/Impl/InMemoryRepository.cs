@@ -3,9 +3,8 @@ using EmojiVoto.EmojiSvc.Domain;
 
 namespace EmojiVoto.EmojiSvc.Persistence.Impl
 {
-
     // ReSharper disable once UnusedType.Global
-    public class InMemoryRepository : IEmojiRepo
+    public class InMemoryRepository : IEmojiRepository
     {
         private readonly List<Emoji> _emojis = new();
 

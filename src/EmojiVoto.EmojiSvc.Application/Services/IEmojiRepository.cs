@@ -2,7 +2,7 @@
 
 namespace EmojiVoto.EmojiSvc.Application.Services
 {
-    public interface IEmojiRepo
+    public interface IEmojiRepository
     {
         Task<IReadOnlyCollection<Emoji>> List();
         Task<Emoji?> Get(string shortcode);

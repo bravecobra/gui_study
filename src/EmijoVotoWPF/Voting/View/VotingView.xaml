@@ -11,11 +11,10 @@
              Name="VotingControl"
              d:DesignHeight="600" d:DesignWidth="800" Loaded="VotingWindow_Loaded">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-    <Grid>
-        <StackPanel>
-            <materialDesign:Card Padding="32" Margin="16">
-                <Grid>
-                    
+        <Grid>
+            <StackPanel>
+                <materialDesign:Card Padding="32" Margin="16">
+                    <Grid>
                         <ItemsControl x:Name="EmojiItems" ItemsSource="{Binding EmojiDtos}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -38,10 +37,9 @@
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-                    
-                </Grid>
-            </materialDesign:Card>
-        </StackPanel>
-    </Grid>
+                    </Grid>
+                </materialDesign:Card>
+            </StackPanel>
+        </Grid>
     </ScrollViewer>
 </UserControl>

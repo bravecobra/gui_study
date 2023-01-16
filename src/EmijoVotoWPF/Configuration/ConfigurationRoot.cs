@@ -32,33 +32,30 @@ namespace EmojiVotoWPF.Configuration
             services.AddTransient<IDashboardModel, DashboardModel>();
             services.AddTransient<IMainWindowViewModel, MainWindowViewModel>();
             services.AddMediatR(Assembly.GetAssembly(typeof(DashboardViewModel))!);
-            services.AddSingleton(typeof(Notifier), _ =>
+            services.AddSingleton(typeof(Notifier), _ => new Notifier(cfg =>
             {
-                return new Notifier(cfg =>
-                {
-                    cfg.PositionProvider = new WindowPositionProvider(
-                        parentWindow: Application.Current.MainWindow,
-                        corner: Corner.TopRight,
-                        offsetX: 10,
-                        offsetY: 10);
+                cfg.PositionProvider = new WindowPositionProvider(
+                    parentWindow: Application.Current.MainWindow,
+                    corner: Corner.TopRight,
+                    offsetX: 10,
+                    offsetY: 10);
 
-                    cfg.LifetimeSupervisor = new TimeAndCountBasedLifetimeSupervisor(
-                        notificationLifetime: TimeSpan.FromSeconds(3),
-                        maximumNotificationCount: MaximumNotificationCount.FromCount(5));
+                cfg.LifetimeSupervisor = new TimeAndCountBasedLifetimeSupervisor(
+                    notificationLifetime: TimeSpan.FromSeconds(3),
+                    maximumNotificationCount: MaximumNotificationCount.FromCount(5));
 
-                    cfg.Dispatcher = Application.Current.Dispatcher;
-                });
-            });
+                cfg.Dispatcher = Application.Current.Dispatcher;
+            }));
             services.AddTransient<MainWindow.MainWindow>();
 
             //EmojiSvc
             services.AddEmojiSvcApi();
-            services.AddEmojiSvcApplicationServices();
+            services.AddEmojiSvcApplication();
             services.AddEmojiSvcSqlite(context.Configuration);
 
             //EmojiVoting
             services.AddEmojiVotingApi();
-            services.AddEmojiVotingApplicationServices();
+            services.AddEmojiVotingApplication();
             services.AddEmojiVotingSqlite(context.Configuration);
             return services;
         }

@@ -5,7 +5,7 @@ namespace EmojiVoto.Voting.Application.Configuration
 {
     public static class EmojiVotingCollectionExtensions
     {
-        public static IServiceCollection AddEmojiVotingApplicationServices(this IServiceCollection services)
+        public static IServiceCollection AddEmojiVotingApplication(this IServiceCollection services)
         {
             services.AddTransient<IVotingService, VotingService>();
             return services;

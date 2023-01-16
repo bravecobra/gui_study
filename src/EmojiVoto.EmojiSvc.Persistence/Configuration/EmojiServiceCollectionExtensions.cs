@@ -10,7 +10,7 @@ namespace EmojiVoto.EmojiSvc.Persistence.Configuration
     {
         public static IServiceCollection AddEmojiSvcSqlite(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddTransient<IEmojiRepo, DatabaseEmojiRepo>();
+            services.AddTransient<IEmojiRepository, DatabaseEmojiRepository>();
             services.AddDbContext<EmojiDbContext>(builder =>
             {
                 builder.UseSqlite(configuration.GetConnectionString("DefaultConnectionEmojies"));

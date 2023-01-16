@@ -20,7 +20,6 @@ namespace EmojiVoto.EmojiSvc.Api.Queries
 
         }
 
-
         public async Task<IEnumerable<EmojiDto>> Handle(ListAllEmojis request, CancellationToken cancellationToken)
         {
             return _mapper.Map<IEnumerable<EmojiDto>>(await _emojiService.ListEmojis());

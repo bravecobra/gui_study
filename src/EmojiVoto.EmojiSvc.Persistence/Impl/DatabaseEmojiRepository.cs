@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EmojiVoto.EmojiSvc.Persistence.Impl;
 
-public class DatabaseEmojiRepo : IEmojiRepo
+public class DatabaseEmojiRepository : IEmojiRepository
 {
     private readonly EmojiDbContext _dbContext;
 
-    public DatabaseEmojiRepo(EmojiDbContext dbContext)
+    public DatabaseEmojiRepository(EmojiDbContext dbContext)
     {
         _dbContext = dbContext;
     }
