@@ -4,6 +4,8 @@ using MediatR;
 
 namespace EmojiVoto.EmojiSvc.Api.Queries
 {
+
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class FindByShortCodeHandler: IRequestHandler<FindByShortCodeHandler.FindByShortcodeQuery, EmojiDto>
     {
         private readonly IEmojiService _service;
@@ -17,7 +19,7 @@ namespace EmojiVoto.EmojiSvc.Api.Queries
 
         public class FindByShortcodeQuery : IRequest<EmojiDto>
         {
-            public string ShortCode { get; set; }
+            public string ShortCode { get; init; } = null!;
         }
 
         public async Task<EmojiDto> Handle(FindByShortcodeQuery request, CancellationToken cancellationToken)

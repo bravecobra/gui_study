@@ -1,4 +1,7 @@
-﻿using EmojiVoto.EmojiSvc.Api.Configuration;
+﻿using System;
+using System.Reflection;
+using System.Windows;
+using EmojiVoto.EmojiSvc.Api.Configuration;
 using EmojiVoto.EmojiSvc.Application.Configuration;
 using EmojiVoto.EmojiSvc.Persistence.Configuration;
 using EmojiVoto.Voting.Api.Configuration;
@@ -9,8 +12,12 @@ using EmojiVotoWPF.Dashboard.ViewModel;
 using EmojiVotoWPF.MainWindow;
 using EmojiVotoWPF.Voting.Model;
 using EmojiVotoWPF.Voting.ViewModel;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ToastNotifications;
+using ToastNotifications.Lifetime;
+using ToastNotifications.Position;
 
 namespace EmojiVotoWPF.Configuration
 {
@@ -23,7 +30,25 @@ namespace EmojiVotoWPF.Configuration
             services.AddTransient<IVotingModel, VotingModel>();
             services.AddTransient<IDashboardViewModel, DashboardViewModel>();
             services.AddTransient<IDashboardModel, DashboardModel>();
-            services.AddTransient<IMainWindowViewModel, MainWindow.MainWindowViewModel>();
+            services.AddTransient<IMainWindowViewModel, MainWindowViewModel>();
+            services.AddMediatR(Assembly.GetAssembly(typeof(DashboardViewModel))!);
+            services.AddSingleton(typeof(Notifier), _ =>
+            {
+                return new Notifier(cfg =>
+                {
+                    cfg.PositionProvider = new WindowPositionProvider(
+                        parentWindow: Application.Current.MainWindow,
+                        corner: Corner.TopRight,
+                        offsetX: 10,
+                        offsetY: 10);
+
+                    cfg.LifetimeSupervisor = new TimeAndCountBasedLifetimeSupervisor(
+                        notificationLifetime: TimeSpan.FromSeconds(3),
+                        maximumNotificationCount: MaximumNotificationCount.FromCount(5));
+
+                    cfg.Dispatcher = Application.Current.Dispatcher;
+                });
+            });
             services.AddTransient<MainWindow.MainWindow>();
 
             //EmojiSvc

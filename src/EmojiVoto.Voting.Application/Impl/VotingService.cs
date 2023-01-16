@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Logging;
 using System.Diagnostics.Metrics;
 using System.Reflection;
+using EmojiVoto.Voting.Application.Events;
+using MediatR;
 
 namespace EmojiVoto.Voting.Application.Impl;
 
@@ -9,11 +11,13 @@ internal class VotingService : IVotingService
 {
     private readonly IVotingRepository _repository;
     private readonly ILogger<VotingService> _logger;
+    private readonly IMediator _mediator;
 
-    public VotingService(IVotingRepository repository, ILogger<VotingService> logger)
+    public VotingService(IVotingRepository repository, ILogger<VotingService> logger, IMediator mediator)
     {
         _repository = repository;
         _logger = logger;
+        _mediator = mediator;
     }
     public async Task Vote(string choice, CancellationToken cancellationToken)
     {
@@ -28,6 +32,7 @@ internal class VotingService : IVotingService
             vote = new VotingResult { Votes = 1, Shortcode = choice };
             await _repository.AddVote(vote);
         }
+        await _mediator.Publish(new NewVoteAdded{ShortCode = choice}, cancellationToken);
         var meter = new Meter(Assembly.GetEntryAssembly()?.GetName().Name ?? "EmojiVoting");
         var counter = meter.CreateCounter<int>("Votes");
         counter.Add(1, KeyValuePair.Create<string, object?>("name", choice));

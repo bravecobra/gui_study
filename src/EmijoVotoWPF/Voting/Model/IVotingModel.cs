@@ -8,4 +8,5 @@ internal interface IVotingModel
 {
     Task<IReadOnlyList<EmojiDto>> GetAllEmojis();
     Task Vote(string shortCode);
+    Task<EmojiDto> FindByShortCode(string shortCode);
 }

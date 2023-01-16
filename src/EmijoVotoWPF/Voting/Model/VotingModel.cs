@@ -27,5 +27,10 @@ namespace EmojiVotoWPF.Voting.Model
         {
             await _mediator.Send(new VoteEmojiHandler.VoteEmojiCommand { ShortCode = shortCode });
         }
+
+        public async Task<EmojiDto> FindByShortCode(string shortCode)
+        {
+            return await _mediator.Send(new FindByShortCodeHandler.FindByShortcodeQuery() { ShortCode = shortCode });
+        }
     }
 }
