@@ -10,14 +10,18 @@
              xmlns:viewModel="clr-namespace:EmojiVotoWPF.Dashboard.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Loaded="DashboardView_OnLoaded">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
     <Grid>
+        
         <StackPanel>
-            <TextBlock Text="This is the Dashboard View" 
+            <TextBlock Text="Voting results" 
+                       FontSize="24"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />
+            
             <materialDesign:Card Padding="32" Margin="16">
                 <Grid>
-                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    
                         <ItemsControl x:Name="EmojiItems" ItemsSource="{Binding VotingResults}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -27,15 +31,17 @@
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate >
                                     <StackPanel Orientation="Vertical">
-                                        <wpf:TextBlock FontSize="24" Text="{Binding Unicode}" HorizontalAlignment="Center" />
-                                        <wpf:TextBlock FontSize="24" Text="{Binding Votes}" HorizontalAlignment="Center" />
+                                        <wpf:TextBlock FontSize="24" Text="{Binding Unicode}" Width="50" Height="50" HorizontalAlignment="Center" />
+                                        <TextBlock FontSize="24" Text="{Binding Votes}" Width="50" Height="50" HorizontalAlignment="Center" />
                                     </StackPanel>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-                    </ScrollViewer>
                 </Grid>
             </materialDesign:Card>
+            
         </StackPanel>
+        
     </Grid>
+    </ScrollViewer>
 </UserControl>

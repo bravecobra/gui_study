@@ -9,12 +9,13 @@
              xmlns:wpf="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
              mc:Ignorable="d" 
              Name="VotingControl"
-             d:DesignHeight="450" d:DesignWidth="800" Loaded="VotingWindow_Loaded">
+             d:DesignHeight="600" d:DesignWidth="800" Loaded="VotingWindow_Loaded">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
     <Grid>
         <StackPanel>
             <materialDesign:Card Padding="32" Margin="16">
                 <Grid>
-                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    
                         <ItemsControl x:Name="EmojiItems" ItemsSource="{Binding EmojiDtos}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -24,7 +25,8 @@
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate >
                                     <StackPanel Orientation="Horizontal">
-                                        <wpf:TextBlock FontSize="24" Text="{Binding Unicode}" Width="50" Height="50" Cursor="Hand">
+                                        <wpf:TextBlock FontSize="24" Text="{Binding Unicode}" Width="50" Height="50" Cursor="Hand"
+                                                       materialDesign:HintAssist.Hint="Vote for {Binding Unicode}">
                                             <wpf:TextBlock.InputBindings>
                                                 <MouseBinding  
                                                     MouseAction="LeftClick" 
@@ -36,9 +38,10 @@
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-                    </ScrollViewer>
+                    
                 </Grid>
             </materialDesign:Card>
         </StackPanel>
     </Grid>
+    </ScrollViewer>
 </UserControl>

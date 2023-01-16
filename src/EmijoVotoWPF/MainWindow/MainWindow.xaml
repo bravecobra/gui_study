@@ -20,7 +20,7 @@
         Style="{StaticResource MaterialDesignWindow}"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="EmojiVoto" Height="450" Width="800">
+        Title="EmojiVoto" Height="620" Width="800">
     <Window.Resources>
         <DataTemplate DataType="{x:Type votingvm:VotingViewModel}">
             <votingview:VotingView/>
