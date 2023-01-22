@@ -2,7 +2,7 @@
 
 namespace EmojiVoto.EmojiSvc.Application.Services.Impl;
 
-internal class EmojiService : IEmojiService
+public class EmojiService : IEmojiService
 {
     private readonly IEmojiRepository _repository;
 

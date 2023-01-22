@@ -13,29 +13,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{47E55E87-0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmojiVotoWPF", "EmijoVotoWPF\EmojiVotoWPF.csproj", "{A44C89AA-10C3-4B3A-8C9C-3C3D8E0D56A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmojiVoto.EmojiSvc.Application", "EmojiVoto.EmojiSvc.Application\EmojiVoto.EmojiSvc.Application.csproj", "{FD6ED3F1-C398-492F-9408-964A7CDD1625}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmojiVoto.EmojiSvc.Application", "EmojiVoto.EmojiSvc.Application\EmojiVoto.EmojiSvc.Application.csproj", "{FD6ED3F1-C398-492F-9408-964A7CDD1625}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmojiVoto.EmojiSvc.Domain", "EmojiVoto.EmojiSvc.Domain\EmojiVoto.EmojiSvc.Domain.csproj", "{F9679DF0-A799-4E98-BC7C-67D92E8F7C34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmojiVoto.EmojiSvc.Domain", "EmojiVoto.EmojiSvc.Domain\EmojiVoto.EmojiSvc.Domain.csproj", "{F9679DF0-A799-4E98-BC7C-67D92E8F7C34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmojiVoto.EmojiSvc.Persistence", "EmojiVoto.EmojiSvc.Persistence\EmojiVoto.EmojiSvc.Persistence.csproj", "{E34DCF50-2E3C-4AA0-A6E6-3FD02223CAF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmojiVoto.EmojiSvc.Persistence", "EmojiVoto.EmojiSvc.Persistence\EmojiVoto.EmojiSvc.Persistence.csproj", "{E34DCF50-2E3C-4AA0-A6E6-3FD02223CAF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmojiVoto.EmojiSvc.Api", "EmojiVoto.EmojiSvc.Api\EmojiVoto.EmojiSvc.Api.csproj", "{ECE8DD9A-C5B9-4C73-ABB7-173044502CDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmojiVoto.EmojiSvc.Api", "EmojiVoto.EmojiSvc.Api\EmojiVoto.EmojiSvc.Api.csproj", "{ECE8DD9A-C5B9-4C73-ABB7-173044502CDA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{430E8708-A898-4EE1-9594-995E36DA0D71}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{83B67A17-23AF-4AA4-9AD3-CBA9725F37C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmojiVoto.Voting.Api", "EmojiVoto.Voting.Api\EmojiVoto.Voting.Api.csproj", "{4F3DC07C-B2DE-4815-A803-C12218F06197}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmojiVoto.Voting.Api", "EmojiVoto.Voting.Api\EmojiVoto.Voting.Api.csproj", "{4F3DC07C-B2DE-4815-A803-C12218F06197}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmojiVoto.Voting.Application", "EmojiVoto.Voting.Application\EmojiVoto.Voting.Application.csproj", "{97C6F90F-CE34-4A67-9A1A-4104443FE00E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmojiVoto.Voting.Application", "EmojiVoto.Voting.Application\EmojiVoto.Voting.Application.csproj", "{97C6F90F-CE34-4A67-9A1A-4104443FE00E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmojiVoto.Voting.Domain", "EmojiVoto.Voting.Domain\EmojiVoto.Voting.Domain.csproj", "{F0159939-D165-4300-82EB-2C57D127FCD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmojiVoto.Voting.Domain", "EmojiVoto.Voting.Domain\EmojiVoto.Voting.Domain.csproj", "{F0159939-D165-4300-82EB-2C57D127FCD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmojiVoto.Voting.Persistence", "EmojiVoto.Voting.Persistence\EmojiVoto.Voting.Persistence.csproj", "{C8988117-330A-4264-97DF-A760B86C0D25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmojiVoto.Voting.Persistence", "EmojiVoto.Voting.Persistence\EmojiVoto.Voting.Persistence.csproj", "{C8988117-330A-4264-97DF-A760B86C0D25}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmojiSvc", "EmojiSvc", "{FDA88A3A-3AB8-409C-B3E7-29A8D117C032}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VotingSvc", "VotingSvc", "{1F860864-4E5D-47CB-9F94-E38EF9FAAD1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmojiVotoGUI.Tests", "EmojiVotoGUI.Tests\EmojiVotoGUI.Tests.csproj", "{626D2DFD-2CBD-4C53-8AC4-72F6871AC2FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +81,10 @@ Global
 		{C8988117-330A-4264-97DF-A760B86C0D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8988117-330A-4264-97DF-A760B86C0D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8988117-330A-4264-97DF-A760B86C0D25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{626D2DFD-2CBD-4C53-8AC4-72F6871AC2FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{626D2DFD-2CBD-4C53-8AC4-72F6871AC2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{626D2DFD-2CBD-4C53-8AC4-72F6871AC2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{626D2DFD-2CBD-4C53-8AC4-72F6871AC2FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

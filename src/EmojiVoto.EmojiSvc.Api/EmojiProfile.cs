@@ -4,7 +4,7 @@ using EmojiVoto.EmojiSvc.Domain;
 
 namespace EmojiVoto.EmojiSvc.Api
 {
-    internal class EmojiProfile: Profile
+    public class EmojiProfile: Profile
     {
         public EmojiProfile()
         {
