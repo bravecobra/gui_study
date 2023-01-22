@@ -46,7 +46,7 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-# Handle NewVoteAdded Show Toast Notifcation
+    autonumber
     Mediator-->>VotingViewModel: Handle NewVoteAdded
     VotingViewModel->>VotingModel: FindByShortCode
     VotingModel->>Mediator: Send FindByShortcodeQuery
@@ -65,6 +65,7 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
+    autonumber
     Mediator-->>DashboardViewModel: Handle NewVoteAdded
     DashboardViewModel->>DashboardModel:GetVotingResults
     DashboardModel->>Mediator:Send ListVotingResultsQuery
