@@ -19,7 +19,7 @@ public class EmojiProfileShould
     [Fact]
     public void MapEmojiToAnEmojiDto()
     {
-        var emoji = new Emoji() { Shortcode = "something", Unicode = "unicode" };
+        var emoji = new Emoji { Shortcode = "something", Unicode = "unicode" };
         var configuration = new MapperConfiguration(cfg =>
             cfg.AddProfile(typeof(EmojiProfile)));
         var sut = new Mapper(configuration);

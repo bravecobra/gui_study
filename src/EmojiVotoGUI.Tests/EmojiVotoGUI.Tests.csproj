@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Backend\EmojiSvc\Api\" />
     <Folder Include="Backend\EmojiSvc\Domain\" />
     <Folder Include="Backend\EmojiSvc\Persistence\" />
     <Folder Include="Backend\VotingSvc\Api\" />
