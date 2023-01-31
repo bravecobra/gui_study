@@ -1,4 +1,5 @@
-﻿using EmojiVoto.EmojiSvc.Domain;
+﻿using System.Diagnostics.CodeAnalysis;
+using EmojiVoto.EmojiSvc.Domain;
 using EmojiVoto.EmojiSvc.Persistence.Mappings;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,7 @@ namespace EmojiVoto.EmojiSvc.Persistence
     {
         public DbSet<Emoji> Emojies { get; set; } = null!;
 
+        [ExcludeFromCodeCoverage]
         public EmojiDbContext()
         {
             
