@@ -13,7 +13,7 @@ namespace EmojiVotoGUI.Tests.Backend.EmojiSvc.Application.Services.Impl
         {
             const string shortCode = "something";
             const string uniCode = "unicode";
-            var emoji = new Emoji()
+            var emoji = new EmojiVoto.EmojiSvc.Domain.Emoji()
             {
                 Shortcode = shortCode,
                 Unicode = uniCode
@@ -33,13 +33,13 @@ namespace EmojiVotoGUI.Tests.Backend.EmojiSvc.Application.Services.Impl
         {
             //Arrange
             const string shortCode = "something";
-            var emoji = new Emoji()
+            var emoji = new EmojiVoto.EmojiSvc.Domain.Emoji()
             {
                 Shortcode = shortCode,
                 Unicode = shortCode
             };
             var repositoryMock = new Mock<IEmojiRepository>();
-            repositoryMock.Setup(repository => repository.List()).ReturnsAsync(() => new ReadOnlyCollection<Emoji>(new List<Emoji> { emoji }));
+            repositoryMock.Setup(repository => repository.List()).ReturnsAsync(() => new ReadOnlyCollection<EmojiVoto.EmojiSvc.Domain.Emoji>(new List<EmojiVoto.EmojiSvc.Domain.Emoji> { emoji }));
             var sut = new EmojiService(repositoryMock.Object);
 
             //Act

@@ -14,7 +14,7 @@ namespace EmojiVotoGUI.Tests.Backend.EmojiSvc.Api.Queries
         {
             const string shortCode = "something";
             const string uniCode = "unicode";
-            var emoji = new Emoji
+            var emoji = new EmojiVoto.EmojiSvc.Domain.Emoji
             {
                 Shortcode = shortCode,
                 Unicode = uniCode

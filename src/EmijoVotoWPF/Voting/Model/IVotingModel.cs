@@ -4,7 +4,7 @@ using EmojiVoto.EmojiSvc.Api.Queries;
 
 namespace EmojiVotoWPF.Voting.Model;
 
-internal interface IVotingModel
+public interface IVotingModel
 {
     Task<IReadOnlyList<EmojiDto>> GetAllEmojis();
     Task Vote(string shortCode);

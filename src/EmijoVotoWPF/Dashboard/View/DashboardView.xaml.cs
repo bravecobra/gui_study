@@ -7,6 +7,7 @@ namespace EmojiVotoWPF.Dashboard.View
     /// <summary>
     /// Interaction logic for UserControl1.xaml
     /// </summary>
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     public partial class DashboardView : UserControl
     {
  

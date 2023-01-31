@@ -16,7 +16,7 @@ public class ListAllEmojisHandlerShould
             cfg.AddProfile(typeof(EmojiProfile)));
         var mapper = new Mapper(configuration);
         var service = new Mock<IEmojiService>();
-        service.Setup(emojiService => emojiService.ListEmojis()).ReturnsAsync(() => new List<Emoji>());
+        service.Setup(emojiService => emojiService.ListEmojis()).ReturnsAsync(() => new List<EmojiVoto.EmojiSvc.Domain.Emoji>());
         var sut = new ListAllEmojisHandler(service.Object, mapper);
         var request = new ListAllEmojisHandler.ListAllEmojis();
         var result = await sut.Handle(request, CancellationToken.None);
