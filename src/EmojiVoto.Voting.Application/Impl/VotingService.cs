@@ -33,9 +33,6 @@ internal class VotingService : IVotingService
             await _repository.AddVote(vote);
         }
         await _mediator.Publish(new NewVoteAdded{ShortCode = choice}, cancellationToken);
-        var meter = new Meter(Assembly.GetEntryAssembly()?.GetName().Name ?? "EmojiVoting");
-        var counter = meter.CreateCounter<int>("Votes");
-        counter.Add(1, KeyValuePair.Create<string, object?>("name", choice));
         _logger.LogInformation("Voted for {choice}, which now has a total of {vote.Votes}", choice, vote.Votes);
     }
 

@@ -9,6 +9,7 @@ namespace EmojiVotoWPF.Voting.View
     /// <summary>
     /// Interaction logic for VotingView.xaml
     /// </summary>
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     public partial class VotingView : UserControl
     {
         public VotingView()

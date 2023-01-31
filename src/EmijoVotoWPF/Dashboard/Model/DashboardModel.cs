@@ -10,10 +10,10 @@ namespace EmojiVotoWPF.Dashboard.Model
 {
     internal class DashboardModel: IDashboardModel
     {
-        private readonly IMediator _mediator;
+        private readonly ISender _mediator;
         private readonly List<Result> _votingResults = new();
 
-        public DashboardModel(IMediator mediator)
+        public DashboardModel(ISender mediator)
         {
             _mediator = mediator;
         }

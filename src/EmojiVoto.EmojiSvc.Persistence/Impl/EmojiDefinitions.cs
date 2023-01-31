@@ -1,6 +1,9 @@
-﻿namespace EmojiVoto.EmojiSvc.Persistence.Impl
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace EmojiVoto.EmojiSvc.Persistence.Impl
 {
-    public static class EmojiDefinitions
+    [ExcludeFromCodeCoverage]
+    internal static class EmojiDefinitions
     {
         public static readonly Dictionary<string, string> CodeMap =
             new()

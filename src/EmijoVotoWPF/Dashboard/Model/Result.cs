@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmojiVotoWPF.Dashboard.Model
 {
-    internal class Result
+    public class Result
     {
         public string Shortcode { get; init; } = null!;
         public string Unicode { get; init; } = null!;

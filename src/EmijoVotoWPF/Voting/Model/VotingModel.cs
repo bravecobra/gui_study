@@ -9,18 +9,16 @@ namespace EmojiVotoWPF.Voting.Model
 {
     internal class VotingModel: IVotingModel
     {
-        private readonly IMediator _mediator;
-        private List<EmojiDto> _emojis = new();
+        private readonly ISender _mediator;
 
-        public VotingModel(IMediator mediator)
+        public VotingModel(ISender mediator)
         {
             _mediator = mediator;
         }
 
         public async Task<IReadOnlyList<EmojiDto>> GetAllEmojis()
         {
-            _emojis = (await _mediator.Send(new ListAllEmojisHandler.ListAllEmojis())).ToList();
-            return _emojis.AsReadOnly();
+            return (await _mediator.Send(new ListAllEmojisHandler.ListAllEmojis())).ToList().AsReadOnly();
         }
 
         public async Task Vote(string shortCode)
@@ -30,7 +28,7 @@ namespace EmojiVotoWPF.Voting.Model
 
         public async Task<EmojiDto> FindByShortCode(string shortCode)
         {
-            return await _mediator.Send(new FindByShortCodeHandler.FindByShortcodeQuery() { ShortCode = shortCode });
+            return await _mediator.Send(new FindByShortCodeHandler.FindByShortcodeQuery { ShortCode = shortCode });
         }
     }
 }

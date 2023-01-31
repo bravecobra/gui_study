@@ -19,10 +19,10 @@ namespace EmojiVotoWPF.Voting.ViewModel
         [ObservableProperty]
         private ObservableCollection<EmojiDto>? _emojiDtos;
 
-        private readonly Notifier _notifier;
+        private readonly INotifier _notifier;
 
         [RelayCommand]
-        private Task Vote(string shortCode)
+        public Task Vote(string shortCode)
         {
             return _model.Vote(shortCode);
         }
@@ -32,7 +32,7 @@ namespace EmojiVotoWPF.Voting.ViewModel
             EmojiDtos = new ObservableCollection<EmojiDto>(await _model.GetAllEmojis());
         }
 
-        public VotingViewModel(IVotingModel model, Notifier notifier)
+        public VotingViewModel(IVotingModel model, INotifier notifier)
         {
             _model = model;
             _notifier = notifier;
