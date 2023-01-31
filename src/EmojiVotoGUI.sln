@@ -37,7 +37,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmojiSvc", "EmojiSvc", "{FD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VotingSvc", "VotingSvc", "{1F860864-4E5D-47CB-9F94-E38EF9FAAD1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmojiVotoGUI.Tests", "EmojiVotoGUI.Tests\EmojiVotoGUI.Tests.csproj", "{626D2DFD-2CBD-4C53-8AC4-72F6871AC2FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmojiVotoWPF.Tests", "EmojiVotoWPF.Tests\EmojiVotoWPF.Tests.csproj", "{FD47F471-FADD-4DB0-8284-31D170DE7597}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,10 +81,10 @@ Global
 		{C8988117-330A-4264-97DF-A760B86C0D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8988117-330A-4264-97DF-A760B86C0D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8988117-330A-4264-97DF-A760B86C0D25}.Release|Any CPU.Build.0 = Release|Any CPU
-		{626D2DFD-2CBD-4C53-8AC4-72F6871AC2FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{626D2DFD-2CBD-4C53-8AC4-72F6871AC2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{626D2DFD-2CBD-4C53-8AC4-72F6871AC2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{626D2DFD-2CBD-4C53-8AC4-72F6871AC2FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD47F471-FADD-4DB0-8284-31D170DE7597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD47F471-FADD-4DB0-8284-31D170DE7597}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD47F471-FADD-4DB0-8284-31D170DE7597}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD47F471-FADD-4DB0-8284-31D170DE7597}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

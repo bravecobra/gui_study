@@ -3,7 +3,7 @@
 namespace EmojiVoto.EmojiSvc.Persistence.Impl
 {
     [ExcludeFromCodeCoverage]
-    public static class EmojiDefinitions
+    internal static class EmojiDefinitions
     {
         public static readonly Dictionary<string, string> CodeMap =
             new()

@@ -12,7 +12,7 @@ using ToastNotifications.Messages;
 
 namespace EmojiVotoWPF.Voting.ViewModel
 {
-    public partial class VotingViewModel : ObservableObject, IVotingViewModel, INotificationHandler<NewVoteAdded>
+    internal partial class VotingViewModel : ObservableObject, IVotingViewModel, INotificationHandler<NewVoteAdded>
     {
         private readonly IVotingModel _model;
 

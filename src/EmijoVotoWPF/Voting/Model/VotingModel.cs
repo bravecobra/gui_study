@@ -7,7 +7,7 @@ using MediatR;
 
 namespace EmojiVotoWPF.Voting.Model
 {
-    public class VotingModel: IVotingModel
+    internal class VotingModel: IVotingModel
     {
         private readonly ISender _mediator;
 

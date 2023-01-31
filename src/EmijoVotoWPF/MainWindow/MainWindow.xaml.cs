@@ -1,4 +1,7 @@
 ﻿using System.Windows;
+using MaterialDesignThemes.Wpf;
+using System;
+using System.Windows;
 
 namespace EmojiVotoWPF.MainWindow
 {

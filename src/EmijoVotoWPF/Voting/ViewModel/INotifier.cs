@@ -2,5 +2,5 @@
 
 public interface INotifier
 {
-    public void ShowSuccess(string Message);
+    public void ShowSuccess(string message);
 }

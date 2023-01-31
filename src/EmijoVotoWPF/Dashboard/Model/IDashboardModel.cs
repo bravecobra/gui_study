@@ -4,7 +4,7 @@ using EmojiVoto.Voting.Api.Queries;
 
 namespace EmojiVotoWPF.Dashboard.Model;
 
-internal interface IDashboardModel
+public interface IDashboardModel
 {
     Task<IEnumerable<Result>> GetVotingResults();
 }

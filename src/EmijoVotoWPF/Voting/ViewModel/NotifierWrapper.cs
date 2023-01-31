@@ -5,7 +5,7 @@ using ToastNotifications.Messages;
 namespace EmojiVotoWPF.Voting.ViewModel;
 
 [ExcludeFromCodeCoverage]
-public class NotifierWrapper: INotifier
+internal class NotifierWrapper: INotifier
 {
     private readonly Notifier _notifier;
 

@@ -15,4 +15,10 @@
     <ProjectReference Include="..\EmojiVoto.EmojiSvc.Application\EmojiVoto.EmojiSvc.Application.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+			<_Parameter1>EmojiVotoWPF.Tests</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
+
 </Project>
