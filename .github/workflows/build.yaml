@@ -26,8 +26,6 @@ jobs:
 
     env:
       Solution_Path: src/EmojiVotoGUI.sln
-      Test_Project_Path: src/EmojiVotoGUI.Tests/EmojiVotoGUI.Tests.csproj
-      Wpf_Project_Path: src/EmojiVotoWPF/EmojiVotoWPF.csproj
       Actions_Allow_Unsecure_Commands: true # Allows AddPAth and SetEnv commands
     steps:
       - name: Checkout
