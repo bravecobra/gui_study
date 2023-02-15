@@ -10,7 +10,7 @@ namespace EmojiVoto.Voting.Api.Configuration
         public static IServiceCollection AddEmojiVotingApi(this IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetAssembly(typeof(VotingProfile)));
-            services.AddMediatR(Assembly.GetAssembly(typeof(VoteEmojiHandler))!);
+            services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(typeof(VoteEmojiHandler).Assembly));
             return services;
         }
     }

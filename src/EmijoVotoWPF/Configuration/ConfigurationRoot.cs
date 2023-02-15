@@ -31,7 +31,7 @@ namespace EmojiVotoWPF.Configuration
             services.AddTransient<IDashboardViewModel, DashboardViewModel>();
             services.AddTransient<IDashboardModel, DashboardModel>();
             services.AddTransient<IMainWindowViewModel, MainWindowViewModel>();
-            services.AddMediatR(Assembly.GetAssembly(typeof(DashboardViewModel))!);
+            services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(typeof(DashboardViewModel).Assembly));
             services.AddTransient<INotifier, NotifierWrapper>();
             services.AddSingleton(typeof(Notifier), _ => new Notifier(cfg =>
             {

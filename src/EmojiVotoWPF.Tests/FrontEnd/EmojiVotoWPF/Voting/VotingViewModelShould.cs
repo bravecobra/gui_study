@@ -38,7 +38,6 @@ public class VotingViewModelShould
     public async Task UseTheModelToVote()
     {
         var shortCode = "some_code";
-        var uniCode = "some_code";
         var mock = new Mock<IVotingModel>();
         var notifierMock = new Mock<INotifier>();
         mock.Setup(model => model.Vote(It.Is<string>(s => s==shortCode)));

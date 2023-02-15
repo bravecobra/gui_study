@@ -10,7 +10,7 @@ namespace EmojiVoto.EmojiSvc.Api.Configuration
         public static IServiceCollection AddEmojiSvcApi(this IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetAssembly(typeof(EmojiProfile)));
-            services.AddMediatR(Assembly.GetAssembly(typeof(ListAllEmojisHandler))!);
+            services.AddMediatR(configuration => configuration.RegisterServicesFromAssemblies(typeof(ListAllEmojisHandler).Assembly));
             return services;
         }
     }
