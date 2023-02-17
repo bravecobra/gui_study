@@ -21,7 +21,7 @@ public class VotingViewModelShould
     }
 
     [Fact]
-    public async Task CallNotificationManager_WhenModelEventIsTriggered()
+    public void CallNotificationManager_WhenModelEventIsTriggered()
     {
         var shortCode = "some_code";
         var uniCode = "some_code";
