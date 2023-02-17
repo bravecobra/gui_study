@@ -33,8 +33,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-    <PackageReference Include="ToastNotifications" Version="2.5.1" />
-    <PackageReference Include="ToastNotifications.Messages" Version="2.5.1" />
+    <PackageReference Include="Notifications.Wpf.Core" Version="1.4.1" />
   </ItemGroup>
 
   <ItemGroup>
