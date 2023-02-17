@@ -4,6 +4,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using EmojiVoto.EmojiSvc.Api.Queries;
 using EmojiVoto.Voting.Api.Queries;
+using EmojiVoto.Voting.Application.Events;
+using EmojiVotoWPF.Events;
 using MediatR;
 
 namespace EmojiVotoWPF.Dashboard.Model
@@ -11,12 +13,20 @@ namespace EmojiVotoWPF.Dashboard.Model
     internal class DashboardModel: IDashboardModel
     {
         private readonly ISender _mediator;
+        private readonly INewVoteCollector _collector;
         private readonly List<Result> _votingResults = new();
 
-        public DashboardModel(ISender mediator)
+        public DashboardModel(ISender mediator, INewVoteCollector collector)
         {
             _mediator = mediator;
+            _collector = collector;
+            collector.Attach(this);
         }
+
+         ~DashboardModel()
+         {
+             _collector.Detach(this);
+         }
 
         public async Task<IEnumerable<Result>> GetVotingResults()
         {
@@ -34,6 +44,17 @@ namespace EmojiVotoWPF.Dashboard.Model
                 });
             }
             return _votingResults;
+        }
+
+        /// <summary>
+        /// When a new vote has been cast, get the latest voting result again.
+        /// </summary>
+        /// <param name="notification"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task Update(NewVoteAdded notification, CancellationToken cancellationToken)
+        {
+            await GetVotingResults();
         }
     }
 }

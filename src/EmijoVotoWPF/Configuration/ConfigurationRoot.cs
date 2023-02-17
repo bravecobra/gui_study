@@ -1,7 +1,4 @@
-﻿using System;
-using System.Reflection;
-using System.Windows;
-using EmojiVoto.EmojiSvc.Api.Configuration;
+﻿using EmojiVoto.EmojiSvc.Api.Configuration;
 using EmojiVoto.EmojiSvc.Application.Configuration;
 using EmojiVoto.EmojiSvc.Persistence.Configuration;
 using EmojiVoto.Voting.Api.Configuration;
@@ -9,15 +6,13 @@ using EmojiVoto.Voting.Application.Configuration;
 using EmojiVoto.Voting.Persistence.Configuration;
 using EmojiVotoWPF.Dashboard.Model;
 using EmojiVotoWPF.Dashboard.ViewModel;
+using EmojiVotoWPF.Events;
 using EmojiVotoWPF.MainWindow;
 using EmojiVotoWPF.Voting.Model;
 using EmojiVotoWPF.Voting.ViewModel;
-using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ToastNotifications;
-using ToastNotifications.Lifetime;
-using ToastNotifications.Position;
+using Notifications.Wpf.Core;
 
 namespace EmojiVotoWPF.Configuration
 {
@@ -31,22 +26,9 @@ namespace EmojiVotoWPF.Configuration
             services.AddTransient<IDashboardViewModel, DashboardViewModel>();
             services.AddTransient<IDashboardModel, DashboardModel>();
             services.AddTransient<IMainWindowViewModel, MainWindowViewModel>();
-            services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(typeof(DashboardViewModel).Assembly));
-            services.AddTransient<INotifier, NotifierWrapper>();
-            services.AddSingleton(typeof(Notifier), _ => new Notifier(cfg =>
-            {
-                cfg.PositionProvider = new WindowPositionProvider(
-                    parentWindow: Application.Current.MainWindow,
-                    corner: Corner.TopRight,
-                    offsetX: 10,
-                    offsetY: 10);
-
-                cfg.LifetimeSupervisor = new TimeAndCountBasedLifetimeSupervisor(
-                    notificationLifetime: TimeSpan.FromSeconds(3),
-                    maximumNotificationCount: MaximumNotificationCount.FromCount(5));
-
-                cfg.Dispatcher = Application.Current.Dispatcher;
-            }));
+            services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(typeof(App).Assembly));
+            services.AddSingleton<INewVoteCollector, VoteEventSubject>();
+            services.AddTransient<INotificationManager, NotificationManager>();
             services.AddTransient<MainWindow.MainWindow>();
 
             //EmojiSvc

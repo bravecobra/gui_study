@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using EmojiVotoWPF.Dashboard.ViewModel;
 using EmojiVotoWPF.Voting.ViewModel;
 

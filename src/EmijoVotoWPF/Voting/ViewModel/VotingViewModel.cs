@@ -1,25 +1,21 @@
 ﻿using System.Collections.ObjectModel;
-using System.Threading;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using EmojiVoto.EmojiSvc.Api.Queries;
-using EmojiVoto.Voting.Application.Events;
 using EmojiVotoWPF.Voting.Model;
-using MediatR;
-using ToastNotifications;
-using ToastNotifications.Messages;
+using Notifications.Wpf.Core;
 
 namespace EmojiVotoWPF.Voting.ViewModel
 {
-    internal partial class VotingViewModel : ObservableObject, IVotingViewModel, INotificationHandler<NewVoteAdded>
+    internal partial class VotingViewModel : ObservableObject, IVotingViewModel
     {
         private readonly IVotingModel _model;
 
         [ObservableProperty]
         private ObservableCollection<EmojiDto>? _emojiDtos;
 
-        private readonly INotifier _notifier;
+        private readonly INotificationManager _notificationManager;
 
         [RelayCommand]
         public Task Vote(string shortCode)
@@ -32,18 +28,21 @@ namespace EmojiVotoWPF.Voting.ViewModel
             EmojiDtos = new ObservableCollection<EmojiDto>(await _model.GetAllEmojis());
         }
 
-        public VotingViewModel(IVotingModel model, INotifier notifier)
+        public VotingViewModel(IVotingModel model, INotificationManager notificationManager)
         {
             _model = model;
-            _notifier = notifier;
+            _model.EmojiVoted += ModelOnEmojiVoted;
+            _notificationManager = notificationManager;
+        }
+
+        private void ModelOnEmojiVoted(object? sender, EmojiVotedEventArgs e)
+        {
+            _notificationManager.ShowAsync(new NotificationContent
+            {
+                Message = $"Your vote for {e.UniCode} has been registered!"
+            });
         }
 
         public string Title => "Voting";
-
-        public async Task Handle(NewVoteAdded notification, CancellationToken cancellationToken)
-        {
-            var emoji = await _model.FindByShortCode(notification.ShortCode);
-            _notifier.ShowSuccess($"Your vote for {emoji.Unicode} has been registered!");
-        }
     }
 }

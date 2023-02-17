@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using EmojiVoto.Voting.Api.Queries;
+using EmojiVotoWPF.Events;
 
 namespace EmojiVotoWPF.Dashboard.Model;
 
-public interface IDashboardModel
+public interface IDashboardModel: INewVoteObserver
 {
     Task<IEnumerable<Result>> GetVotingResults();
 }

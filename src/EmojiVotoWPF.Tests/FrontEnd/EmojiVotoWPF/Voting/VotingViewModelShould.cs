@@ -3,8 +3,9 @@ using EmojiVoto.Voting.Application.Events;
 using EmojiVotoWPF.Voting.Model;
 using EmojiVotoWPF.Voting.ViewModel;
 using Moq;
+using Notifications.Wpf.Core;
 
-namespace EmojiVotoGUI.Tests.FrontEnd.EmojiVotoWPF.Voting;
+namespace EmojiVotoWPF.Tests.FrontEnd.EmojiVotoWPF.Voting;
 
 public class VotingViewModelShould
 {
@@ -12,7 +13,7 @@ public class VotingViewModelShould
     public async Task UseTheModelToFetchEmojis()
     {
         var mock = new Mock<IVotingModel>();
-        var notifierMock = new Mock<INotifier>();
+        var notifierMock = new Mock<INotificationManager>();
         mock.Setup(model => model.GetAllEmojis()).ReturnsAsync(() => new List<EmojiDto>());
         var sut = new VotingViewModel(mock.Object, notifierMock.Object);
         await sut.GetEmojies();
@@ -20,18 +21,21 @@ public class VotingViewModelShould
     }
 
     [Fact]
-    public async Task HandlingANewVoteAddedEvent()
+    public async Task CallNotificationManager_WhenModelEventIsTriggered()
     {
         var shortCode = "some_code";
         var uniCode = "some_code";
-        var voteAddedEvent = new NewVoteAdded{ ShortCode = shortCode };
         var mock = new Mock<IVotingModel>();
-        var notifierMock = new Mock<INotifier>();
+        mock.Setup(model => model.Update(It.IsAny<NewVoteAdded>(), It.IsAny<CancellationToken>()));
+        var notifierMock = new Mock<INotificationManager>();
         mock.Setup(model => model.FindByShortCode(It.Is<string>(s => s==shortCode))).ReturnsAsync(() => new EmojiDto(){Shortcode = shortCode, Unicode = uniCode});
         var sut = new VotingViewModel(mock.Object, notifierMock.Object);
-        await sut.Handle(voteAddedEvent, CancellationToken.None);
-        mock.Verify(model => model.FindByShortCode(It.Is<string>(s => s==shortCode)), Times.Once);
-        notifierMock.Verify(model => model.ShowSuccess(It.Is<string>(s => s.Contains(shortCode))), Times.Once);
+        //act
+        mock.Raise(foo => foo.EmojiVoted += null, new EmojiVotedEventArgs(){ShortCode = shortCode, UniCode = uniCode});
+        //assert
+        notifierMock.Verify(model => model.ShowAsync(
+            It.Is<NotificationContent>(content => content.Message!.Contains(uniCode)), null,null, null, null, It.IsAny<CancellationToken>()
+            ), Times.Once);
     }
 
     [Fact]
@@ -39,7 +43,7 @@ public class VotingViewModelShould
     {
         var shortCode = "some_code";
         var mock = new Mock<IVotingModel>();
-        var notifierMock = new Mock<INotifier>();
+        var notifierMock = new Mock<INotificationManager>();
         mock.Setup(model => model.Vote(It.Is<string>(s => s==shortCode)));
         var sut = new VotingViewModel(mock.Object, notifierMock.Object);
         await sut.Vote(shortCode);
@@ -50,7 +54,7 @@ public class VotingViewModelShould
     public void ShouldHaveTheTitleVoting()
     {
         var mock = new Mock<IVotingModel>();
-        var notifierMock = new Mock<INotifier>();
+        var notifierMock = new Mock<INotificationManager>();
         var sut = new VotingViewModel(mock.Object, notifierMock.Object);
         Assert.Equal("Voting", sut.Title);
     }
